@@ -10,8 +10,8 @@
   </head>
   <body class="font-sans bg-gray-50">
     <!-- ===== Navbar ===== -->
-    <header class="bg-green-700 text-white shadow-md sticky top-0 z-50">
-      <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <header class="sticky top-0 z-50 bg-green-700 text-white shadow-md">
+      <div class="container mx-auto flex justify-between items-center px-4 py-3">
         <div class="flex items-center space-x-4">
           <img src="https://placehold.co/60x60" alt="Logo Kelurahan Pabean" class="h-12 w-12 rounded-full" />
           <div>
@@ -32,24 +32,24 @@
         </nav>
 
         <!-- Hamburger Button for Mobile -->
-        <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+        <button class="md:hidden" onclick="toggleMobileMenu()">
           <i class="fas fa-bars text-xl"></i>
         </button>
       </div>
-    </header>
 
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="hidden bg-green-800 text-white md:hidden">
-      <div class="container mx-auto px-4 py-4 flex flex-col space-y-3">
-        <a href="#home" class="py-2 hover:text-yellow-300 transition">Beranda</a>
-        <a href="#profile" class="py-2 hover:text-yellow-300 transition">Profil</a>
-        <a href="#services" class="py-2 hover:text-yellow-300 transition">Layanan</a>
-        <a href="#news" class="py-2 hover:text-yellow-300 transition">Berita</a>
-        <a href="#gallery" class="py-2 hover:text-yellow-300 transition">Galeri</a>
-        <a href="#map" class="py-2 hover:text-yellow-300 transition">Peta</a>
-        <a href="#contact" class="py-2 hover:text-yellow-300 transition">Kontak</a>
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="hidden md:hidden bg-green-800 text-white">
+        <div class="flex flex-col px-4 py-2 space-y-2">
+          <a href="#home" class="hover:text-yellow-300">Beranda</a>
+          <a href="#profile" class="hover:text-yellow-300">Profil</a>
+          <a href="#services" class="hover:text-yellow-300">Layanan</a>
+          <a href="#news" class="hover:text-yellow-300">Berita</a>
+          <a href="#gallery" class="hover:text-yellow-300">Galeri</a>
+          <a href="#map" class="hover:text-yellow-300">Peta</a>
+          <a href="#contact" class="hover:text-yellow-300">Kontak</a>
+        </div>
       </div>
-    </div>
+    </header>
 
     <section id="home" class="hero-section text-white py-20 bg-green-600">
       <div class="container mx-auto px-4 text-center">
@@ -270,20 +270,23 @@
     </footer>
     <!-- JavaScript: Toggle Menu -->
     <script>
-      function toggleMobileMenu() {
-        const menu = document.getElementById("mobileMenu");
-        menu.classList.toggle("hidden");
-      }
+        const mobileMenu = document.getElementById("mobileMenu");
+        const hamburgerButton = document.querySelector("button[onclick='toggleMobileMenu()']");
 
-      // Tutup menu otomatis saat link diklik
-      document.addEventListener("DOMContentLoaded", () => {
-        const links = document.querySelectorAll("#mobileMenu a");
-        links.forEach((link) => {
-          link.addEventListener("click", () => {
-            document.getElementById("mobileMenu").classList.add("hidden");
-          });
-        });
-      });
+        function toggleMobileMenu() {
+          if (mobileMenu.classList.contains("hidden")) {
+            mobileMenu.classList.remove("hidden");
+          } else {
+            mobileMenu.classList.add("hidden");
+          }
+        }
+
+        // Tutup menu saat link diklik
+      <script>
+        function toggleMobileMenu() {
+          const menu = document.getElementById("mobileMenu");
+          menu.classList.toggle("hidden");
+        }
     </script>
   </body>
 </html>
