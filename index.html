@@ -15,11 +15,13 @@
         <div class="flex items-center space-x-4">
           <img src="https://placehold.co/60x60" alt="Logo Kelurahan Pabean" class="h-12 w-12 rounded-full" />
           <div>
-            <h1 class="text-2xl font-bold">KELURAHAN PABEAN</h1>
+            <h1 class="text-2xl font-bold">DESA PABEAN</h1>
             <p class="text-sm opacity-80">Kecamatan Dringu, Kabupaten Probolinggo, Jawa Timur</p>
           </div>
         </div>
-        <nav id="navbar" class="hidden md:flex space-x-6">
+
+        <!-- Desktop Menu -->
+        <nav class="hidden md:flex space-x-6">
           <a href="#home" class="hover:text-yellow-300 transition">Beranda</a>
           <a href="#profile" class="hover:text-yellow-300 transition">Profil</a>
           <a href="#services" class="hover:text-yellow-300 transition">Layanan</a>
@@ -28,8 +30,9 @@
           <a href="#map" class="hover:text-yellow-300 transition">Peta</a>
           <a href="#contact" class="hover:text-yellow-300 transition">Kontak</a>
         </nav>
-        <!-- Hamburger Menu -->
-        <button class="md:hidden text-white" onclick="document.getElementById('navbar').classList.toggle('hidden')">
+
+        <!-- Hamburger Button for Mobile -->
+        <button class="md:hidden text-white" onclick="toggleMobileMenu()">
           <i class="fas fa-bars text-xl"></i>
         </button>
       </div>
@@ -37,20 +40,21 @@
 
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="hidden bg-green-800 text-white md:hidden">
-      <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+      <div class="container mx-auto px-4 py-4 flex flex-col space-y-3">
         <a href="#home" class="py-2 hover:text-yellow-300 transition">Beranda</a>
         <a href="#profile" class="py-2 hover:text-yellow-300 transition">Profil</a>
         <a href="#services" class="py-2 hover:text-yellow-300 transition">Layanan</a>
-        <a href="#agenda" class="py-2 hover:text-yellow-300 transition">Agenda</a>
+        <a href="#news" class="py-2 hover:text-yellow-300 transition">Berita</a>
+        <a href="#gallery" class="py-2 hover:text-yellow-300 transition">Galeri</a>
+        <a href="#map" class="py-2 hover:text-yellow-300 transition">Peta</a>
         <a href="#contact" class="py-2 hover:text-yellow-300 transition">Kontak</a>
       </div>
     </div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section text-white py-20">
+    <section id="home" class="hero-section text-white py-20 bg-green-600">
       <div class="container mx-auto px-4 text-center">
         <h1 class="text-4xl md:text-5xl font-bold mb-4">Selamat Datang di Website Resmi</h1>
-        <h2 class="text-3xl md:text-4xl font-bold mb-6">Kelurahan Pabean</h2>
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Desa Pabean</h2>
         <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8">Melayani dengan hati untuk kesejahteraan masyarakat</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="#services" class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-6 rounded-full transition">Lihat Layanan</a>
@@ -264,5 +268,22 @@
         <a href="https://www.instagram.com/pabean_digital/" target="_blank" class="text-yellow-300 hover:underline ml-1"> @pabean_digital <i class="fab fa-instagram"></i> </a>
       </p>
     </footer>
+    <!-- JavaScript: Toggle Menu -->
+    <script>
+      function toggleMobileMenu() {
+        const menu = document.getElementById("mobileMenu");
+        menu.classList.toggle("hidden");
+      }
+
+      // Tutup menu otomatis saat link diklik
+      document.addEventListener("DOMContentLoaded", () => {
+        const links = document.querySelectorAll("#mobileMenu a");
+        links.forEach((link) => {
+          link.addEventListener("click", () => {
+            document.getElementById("mobileMenu").classList.add("hidden");
+          });
+        });
+      });
+    </script>
   </body>
 </html>
