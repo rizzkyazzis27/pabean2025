@@ -1,0 +1,33 @@
+/* Custom Styles */
+.hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://placehold.co/1920x1080") no-repeat center center;
+  background-size: cover;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+#complaintModal,
+#adminModal {
+  display: none;
+}
+
+.tabcontent {
+  display: none;
+}
+
+.tabcontent.active {
+  display: block;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
