@@ -20,33 +20,33 @@
           </div>
         </div>
 
-        <!-- Desktop Menu -->
-        <nav class="hidden md:flex space-x-6">
-          <a href="#home" class="hover:text-yellow-300 transition">Beranda</a>
-          <a href="#profile" class="hover:text-yellow-300 transition">Profil</a>
-          <a href="#services" class="hover:text-yellow-300 transition">Layanan</a>
-          <a href="#news" class="hover:text-yellow-300 transition">Berita</a>
-          <a href="#gallery" class="hover:text-yellow-300 transition">Galeri</a>
-          <a href="#map" class="hover:text-yellow-300 transition">Peta</a>
-          <a href="#contact" class="hover:text-yellow-300 transition">Kontak</a>
-        </nav>
-
         <!-- Hamburger Button for Mobile -->
-        <button class="md:hidden" onclick="toggleMobileMenu()">
+        <button id="hamburgerBtn" class="md:hidden">
           <i class="fas fa-bars text-xl"></i>
         </button>
       </div>
 
-      <!-- Mobile Menu -->
-      <div id="mobileMenu" class="hidden md:hidden bg-green-800 text-white">
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex space-x-6">
+        <a href="#home" class="hover:text-yellow-300 transition">Beranda</a>
+        <a href="#profile" class="hover:text-yellow-300 transition">Profil</a>
+        <a href="#services" class="hover:text-yellow-300 transition">Layanan</a>
+        <a href="#news" class="hover:text-yellow-300 transition">Berita</a>
+        <a href="#gallery" class="hover:text-yellow-300 transition">Galeri</a>
+        <a href="#map" class="hover:text-yellow-300 transition">Peta</a>
+        <a href="#contact" class="hover:text-yellow-300 transition">Kontak</a>
+      </nav>
+
+      <!-- MENU MOBILE (posisi tetap di bawah navbar) -->
+      <div id="mobileMenu" class="hidden md:hidden bg-green-800 text-white w-full">
         <div class="flex flex-col px-4 py-2 space-y-2">
-          <a href="#home" class="hover:text-yellow-300">Beranda</a>
-          <a href="#profile" class="hover:text-yellow-300">Profil</a>
-          <a href="#services" class="hover:text-yellow-300">Layanan</a>
-          <a href="#news" class="hover:text-yellow-300">Berita</a>
-          <a href="#gallery" class="hover:text-yellow-300">Galeri</a>
-          <a href="#map" class="hover:text-yellow-300">Peta</a>
-          <a href="#contact" class="hover:text-yellow-300">Kontak</a>
+          <a href="#home" class="menu-link hover:text-yellow-300">Beranda</a>
+          <a href="#profile" class="menu-link hover:text-yellow-300">Profil</a>
+          <a href="#services" class="menu-link hover:text-yellow-300">Layanan</a>
+          <a href="#news" class="menu-link hover:text-yellow-300">Berita</a>
+          <a href="#gallery" class="menu-link hover:text-yellow-300">Galeri</a>
+          <a href="#map" class="menu-link hover:text-yellow-300">Peta</a>
+          <a href="#contact" class="menu-link hover:text-yellow-300">Kontak</a>
         </div>
       </div>
     </header>
@@ -269,24 +269,24 @@
       </p>
     </footer>
     <!-- JavaScript: Toggle Menu -->
+
     <script>
-        const mobileMenu = document.getElementById("mobileMenu");
-        const hamburgerButton = document.querySelector("button[onclick='toggleMobileMenu()']");
+      // Toggle menu saat tombol hamburger ditekan
+      document.getElementById("hamburgerBtn").addEventListener("click", function () {
+        const menu = document.getElementById("mobileMenu");
+        menu.classList.toggle("hidden");
+      });
 
-        function toggleMobileMenu() {
-          if (mobileMenu.classList.contains("hidden")) {
-            mobileMenu.classList.remove("hidden");
-          } else {
-            mobileMenu.classList.add("hidden");
-          }
-        }
-
-        // Tutup menu saat link diklik
-      <script>
-        function toggleMobileMenu() {
+      // Tutup menu saat link diklik
+      const menuLinks = document.querySelectorAll(".menu-link");
+      menuLinks.forEach((link) => {
+        link.addEventListener("click", function () {
           const menu = document.getElementById("mobileMenu");
-          menu.classList.toggle("hidden");
-        }
+          if (!menu.classList.contains("hidden")) {
+            menu.classList.add("hidden");
+          }
+        });
+      });
     </script>
   </body>
 </html>
